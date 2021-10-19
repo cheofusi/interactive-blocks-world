@@ -1,0 +1,55 @@
+name:                interactive-blocks-world
+version:             0.1.0
+github:              "cheofusi/interactive-blocks-world"
+license:             MIT
+author:              "Cheo Fusi"
+maintainer:          "fusibrandon13@gmail.com"
+copyright:           "2021 Cheo Fusi"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Console
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/cheofusi/interactive-blocks-world#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+  - containers
+  - async
+  - lens
+  - gloss
+  - haskeline
+  - ansi-terminal
+
+executables:
+  interactive-blocks-world-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - interactive-blocks-world
+
+tests:
+  interactive-blocks-world-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - interactive-blocks-world
